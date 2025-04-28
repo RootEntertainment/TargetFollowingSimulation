@@ -1,0 +1,17 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{CB3FA3B9-4726-28A9-757D-A6BE15CEF0A5}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "ROSProject",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine",
+				"AIModule"
+			]
+		}
+	]
+}
