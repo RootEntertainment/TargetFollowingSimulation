@@ -2,6 +2,8 @@
 
 
 #include "ROSPawn.h"
+
+#include "DrawDebugHelpers.h"
 #include "ROSController.h"
 #include "ROSIntegrationGameInstance.h"
 #include "Engine/InputDelegateBinding.h"
@@ -181,6 +183,12 @@ void AROSPawn::Tick(float DeltaTime)
 	FQuat DeltaRotation = GetActorTransform().GetRotation() - LastTransform.GetRotation();
 	CurrentLinearVelocity = DeltaLocation / DeltaTime;
 	CurrentAngularVelocity = DeltaRotation.Euler() / 180 * PI / DeltaTime;
+
+	if(bShowTrace)
+	{
+		DrawDebugLine(GetWorld(), LastTransform.GetLocation(), GetActorLocation(), FColor::Green, true);
+	}
+	
 	LastTransform = GetActorTransform();
 
 	if(ROSPawnMovement)
@@ -188,5 +196,6 @@ void AROSPawn::Tick(float DeltaTime)
 		ROSPawnMovement->Velocity = CurrentLinearVelocity;
 		ROSPawnMovement->UpdateComponentVelocity();
 	}
+	
 }
 

@@ -53,6 +53,9 @@ public:
 	FString OdomTopicName = "/odom";	
 	UPROPERTY(EditAnywhere, Category="ROSPawn", DisplayName="Keyboard Control")
 	bool bEnableInputControl = true;
+
+	UPROPERTY(EditAnywhere, Category="ROSPawn", DisplayName="Trace")
+	bool bShowTrace = true;
 	
 	virtual FVector GetCurrentLinearVelocity(EROSSpace::EROSSpace Space)
 	{
